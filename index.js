@@ -5,12 +5,13 @@ app.use(express.json({ extended: false, limit: '50mb' }));
 const connectMongoDB = require('./config');
 connectMongoDB();
 
-app.get('/', (req, res) => {
-    res.send("Hello World")
-});
-
 app.use("/api/post", require("./route/post"));
 app.use("/api/feed", require("./route/feed"));
+
+app.use(express.static('client/build'));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
