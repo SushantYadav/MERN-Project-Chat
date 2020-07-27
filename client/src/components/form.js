@@ -42,8 +42,8 @@ class Form extends Component {
         return (
             <>
                 <form onSubmit={this.submitHandler}>
-                    <input type="text" name="name" placeholder="Enter name" onChange={this.changeHandler} required />
-                    <input type="text" name="name" placeholder="Tweet" onChange={this.changeHandler} required />
+                    <input type="text" name="name" placeholder="Enter Name" onChange={this.changeHandler} required />
+                    <input type="text" name="tweet" placeholder="Tweet" onChange={this.changeHandler} required />
                     <input type="submit" />
                 </form>
             </>
