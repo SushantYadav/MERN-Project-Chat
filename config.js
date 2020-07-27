@@ -1,0 +1,18 @@
+const mongoose = require("mongoose");
+require("dotenv").config();
+mongoose.set('useFindAndModify', false);
+const connectMongoDB = async () => {
+    try {
+        await mongoose.connect(process.env.HOST, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        })
+        console.log("MongoDB COnnected !!!")
+    } catch (err) {
+        console.log(err.message);
+        process.exit(1);
+    }
+}
+
+module.exports = connectMongoDB;
